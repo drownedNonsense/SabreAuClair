@@ -1,0 +1,52 @@
+{
+    "game:tabname-sabreauclair": "Sabre au Clair",
+
+    "game:blockhelp-company-lead":   "Lead your troops",
+    "game:blockhelp-company-attack": "Lead your troops into attack",
+
+
+    "game:blockhelp-hireable-pay":            "Pay",
+    "game:blockhelp-hireable-joinformation":  "Stay in formation",
+    "game:blockhelp-hireable-leaveformation": "Leave the formation",
+    "game:blockhelp-hireable-aggressive":     "Attack on sight",
+    "game:blockhelp-hireable-defensive":      "Sheath your weapon",
+
+    "game:ingameerror-companylimitreached": "I cannot lead more troops.",
+
+    "item-creature-mercenary":      "Mercenary",
+    "item-dead-creature-mercenary": "Corpse",
+
+    "item-officersabre-copper":        "Copper officer sabre",
+    "item-officersabre-tinbronze":     "Tin bronze officer sabre",
+    "item-officersabre-bismuthbronze": "Bismuth bronze officer sabre",
+    "item-officersabre-blackbronze":   "Black bronze officer sabre",
+    "item-officersabre-gold":          "Gold officer sabre",
+    "item-officersabre-silver":        "Silver officer sabre",
+    "item-officersabre-iron":          "Iron officer sabre",
+    "item-officersabre-meteoriciron":  "Meteoric iron officer sabre",
+    "item-officersabre-steel":         "Steel officer sabre",
+    "item-officersabre-ruined":        "Ruined officer sabre",
+
+    "item-sabreblade-copper":        "Copper sabre blade",
+    "item-sabreblade-tinbronze":     "Tin bronze sabre blade",
+    "item-sabreblade-bismuthbronze": "Bismuth bronze sabre blade",
+    "item-sabreblade-blackbronze":   "Black bronze sabre blade",
+    "item-sabreblade-gold":          "Gold sabre blade",
+    "item-sabreblade-silver":        "Silver sabre blade",
+    "item-sabreblade-iron":          "Iron sabre blade",
+    "item-sabreblade-meteoriciron":  "Meteoric iron sabre blade",
+    "item-sabreblade-steel":         "Steel sabre blade",
+
+    "item-sabreguard-copper":        "Copper sabre guard",
+    "item-sabreguard-tinbronze":     "Tin bronze sabre guard",
+    "item-sabreguard-bismuthbronze": "Bismuth bronze sabre guard",
+    "item-sabreguard-blackbronze":   "Black bronze sabre guard",
+    "item-sabreguard-gold":          "Gold sabre guard",
+    "item-sabreguard-silver":        "Silver sabre guard",
+    "item-sabreguard-iron":          "Iron sabre guard",
+    "item-sabreguard-meteoriciron":  "Meteoric iron sabre guard",
+    "item-sabreguard-steel":         "Steel sabre guard",
+
+    "Fighting in {0}'s company for {1:0.#} days": "Fighting in {0}'s company for {1:0.#} days",
+    "Knight-errant": "Knight-errant"
+}

@@ -1,0 +1,29 @@
+{
+	"code": "hireable-arrow",
+	"class": "EntityHireableProjectile",
+	"hitboxSize": { "x": 0.125, "y": 0.125 },
+	"attributes": { "itemStack": "game:arrow-iron" },
+	"client": {
+		"size": 0.75,
+		"renderer": "Shape",
+		"shape": { "base": "game:entity/arrow/copper" },
+		"textures": { "material": { "base": "game:block/metal/ingot/iron" }},
+		"behaviors": [{
+			"code": "passivephysics",
+			"groundDragFactor": 1,
+			"airDragFactor": 0.25,
+			"gravityFactor": 0.75
+			}, { "code": "interpolateposition" }
+		]
+	},
+	"server": {
+		"behaviors": [{ 
+			"code": "passivephysics",
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			}, { "code": "despawn", "minSeconds": 600 }
+		]
+	},
+	"sounds": {}
+}

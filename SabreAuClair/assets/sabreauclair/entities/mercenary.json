@@ -1,0 +1,368 @@
+{
+	"code":  "mercenary",
+	"class": "EntityMercenary",
+	"canClimb": true,
+	"eyeHeight": 1.5,
+	"hitboxSize":     { "x": 0.60, "y": 1.75 },
+	"deadHitboxSize": { "x": 0.75, "y": 0.50 },
+	"drops": [],
+	"attributes": {
+		"selectFromRandomArmor": [{
+			}, {
+				"armorBody": "game:armor-body-sewn-linen"
+			}, {
+				"armorBody": "game:armor-body-chain-blackbronze"
+			}, {
+				"armorHead": "game:armor-head-antique-blackguard-pristine",
+				"armorBody": "game:armor-body-sewn-linen",
+				"armorLegs": "game:armor-legs-sewn-leather"
+			}, {
+				"armorBody": "game:armor-body-antique-blackguard-broken",
+				"armorLegs": "game:armor-legs-antique-blackguard-broken"
+			}, {
+				"armorHead": "game:armor-head-antique-blackguard-pristine",
+				"armorBody": "game:armor-body-antique-blackguard-damaged",
+				"armorLegs": "game:armor-legs-antique-blackguard-broken"
+			}
+		],
+		"selectFromRandomWeapons": [
+			"game:blade-blackguard-iron",
+			"game:blade-claymore-ruined",
+			"game:blade-gladius-ruined",
+			"game:club-flanged-ruined",
+			"game:club-warhammer-ruined",
+			"game:spear-boar-ruined",
+			"game:spear-voulge-ruined",
+			"game:axe-bardiche-ruined",
+			"game:sling",
+			"game:bow-simple",
+			"game:bow-long"
+		],
+		"blockDiet": [
+			"crop-cabbage*",
+			"crop-carrot*",
+			"crop-flax*",
+			"crop-parsnip*",
+			"crop-rye*",
+			"crop-soybean*",
+			"crop-spelt*",
+			"crop-turnip*",
+			"crop-peanut*",
+			"crop-rice-1", "crop-rice-2", "crop-rice-3"
+		]
+	},
+	"client": {
+		"renderer": "Shape",
+		"shape":   { "base": "game:entity/humanoid/trader" },
+		"texture": { "base": "game:entity/humanoid/trader", "alternates": [
+			{ "base": "game:entity/humanoid/traderclothes/set1" }, { "base": "game:entity/humanoid/traderclothes/set2" },
+			{ "base": "game:entity/humanoid/traderclothes/set3" }, { "base": "game:entity/humanoid/traderclothes/set4" },
+            { "base": "game:entity/humanoid/traderclothes/set5" }
+		]},
+		"behaviors": [
+			{ "code": "nametag", "showtagonlywhentargeted": true },
+			{ "code": "repulseagents" },
+			{ "code": "controlledphysics", "stepHeight": 1.01 },
+			{ "code": "hireable" },
+			{ "code": "interpolateposition" },
+			{ "code": "harvestable", "duration": 4 }
+		],
+		"animations": [{
+				"code":      "die",
+				"animation": "Die",
+				"animationSpeed": 1.75,
+				"weight":           10,
+				"blendMode": "AddAverage",
+				"triggeredBy": { "onControls": ["Dead"] }
+			}, {
+				"code":      "swim",
+				"animation": "Swim",
+				"animationSpeed": 1.75,
+				"weight":           10,
+				"blendMode": "AddAverage",
+				"triggeredBy": { "onControls": ["Swim"] }
+			}, { 
+				"code":      "idle", 
+				"animation": "BalancedIdle",
+				"clientSide": true,
+				"blendMode": "Average", 
+				"triggeredBy": { "onControls": ["Idle"], "matchExact": true, "defaultAnim": true }
+			}, {
+				"code":      "hurt",
+				"animation": "RowdyHurt",
+				"animationSpeed": 2,
+				"blendMode": "AddAverage"
+			}, {
+				"code":      "sleep",
+				"animation": "Lie",
+				"blendMode": "AddAverage"
+			}, {
+				"code":      "hired",
+				"animation": "FormalWelcome",
+				"blendMode": "AddAverage"
+			}
+		]
+	},
+	"server": {
+		"attributes": {
+			"pathfinder": {
+				"minTurnAnglePerSec":  720,
+				"maxTurnAnglePerSec": 1440
+			}
+		},
+		"behaviors": [
+			{ "code": "nametag", "showtagonlywhentargeted": true, "selectFromRandomName": [
+				"Vox Nora", "Innis",
+				"Roi",      "Quill",
+				"Ephram",   "Edel",
+				"Timaf",    "Shift",
+				"Jonas",    "Falx",
+				"Kael",     "Zephyr",
+				"Lyric",    "Soren",
+				"Elowen",   "Orion",
+				"Thorne",   "Astrid",
+				"Nyx",      "Seraphina",
+				"Caelum",   "Isolde",
+				"Vale",     "Liora",
+				"Zenith",   "Cassian",
+				"Seren",    "Maelis",
+				"Xara",     "Eirian",
+				"Iliad",    "Zephyrus"
+			]},
+			{ "code": "repulseagents" },
+			{ "code": "controlledphysics", "stepHeight": 1.01 },
+			{ "code": "deaddecay", "hoursToDecay": 24, "decayedBlock": "drycarcass-humanoid1" },
+			{ "code": "hireable" },
+			{ "code": "randomGear" },
+			{ "code": "harvestable", "duration": 4, "fixedweight": true, "drops": []},
+			{ "code": "health", "currenthealth": 25, "maxhealth": 25 }, {
+				"code": "emotionstates",
+				"states": [
+					{ "code": "fleeondamage",       "duration": 100, "chance": 0.5, "slot": 0, "priority": 5, "accumType": "max", "whenHealthRelBelow": 0.4 },
+					{ "code": "retreat",            "duration":  10, "chance": 0.5, "slot": 0, "priority": 5, "accumType": "max" },
+					{ "code": "alarmherdondamage",                   "chance": 1.0, "slot": 1, "priority": 1, "accumType": "max" }
+				]
+			}, {
+				"code": "taskai",
+				"aitasks": [{
+					"code": "hireablestayinformation",
+					"priority":  2,
+					"movespeed": 0.02,
+					"animation":     "BalancedWalk",
+					"animationSpeed": 1.75
+				}, {
+					"code": "hireableseekentity",
+					"entityCodes": [
+						"wolf-male",  "wolf-female",
+						"hyena-male", "hyena-female",
+						"bear-*",
+						"drifter-*"
+					],
+					"priority": 3,
+					"mincooldown": 1000,
+					"maxcooldown": 1500,
+					"seekingRange": 12,
+					"movespeed": 0.02,
+					"animation":     "BalancedWalk",
+					"animationSpeed": 1.75
+				}, {
+					"code": "hireablemeleeattack",
+					"entityCodes": [
+						"wolf-male",  "wolf-female",
+						"hyena-male", "hyena-female",
+						"bear-*",
+						"drifter-*"
+					],
+					"priority": 3,
+					"mincooldown":  500,
+					"maxcooldown": 2000,
+					"attackDurationMs": 900,
+					"damagePlayerAtMs": 300,
+					"animation":     "BalancedAttack",
+					"animationSpeed": 2,
+					"sound":       "game:player/stab",
+					"soundStartMs": 700,
+					"soundRange":   24
+				}, {
+					"code": "hireablerangeattack",
+					"entityCodes": [
+						"wolf-male",  "wolf-female",
+						"hyena-male", "hyena-female",
+						"bear-*",
+						"drifter-*"
+					],
+					"itemCodes": ["game:bow-*"],
+					"priority": 4,
+					"priorityForCancel": 9,
+					"mincooldown": 1000, 
+					"maxcooldown": 6000, 
+					"durationMs":   1200,
+					"releaseAtMs":   700,
+					"maxDist": 32,
+					"animation":     "BowAim",
+					"animationSpeed": 1.5,
+					"sound":       "game:bow-draw",
+					"finishSound": "game:bow-release",
+					"soundRange":   32
+				}, {
+					"code": "hireablerangeattack",
+					"entityCodes": [
+						"wolf-male",  "wolf-female",
+						"hyena-male", "hyena-female",
+						"bear-*",
+						"drifter-*"
+					],
+					"itemCodes": ["game:sling"],
+					"priority": 4,
+					"priorityForCancel": 9,
+					"mincooldown": 1000, 
+					"maxcooldown": 6000, 
+					"durationMs":   1200,
+					"releaseAtMs":   700,
+					"maxDist": 16,
+					"projectileCode": "sabreauclair:hireable-thrownstone-granite",
+					"animation":      "BalancedAttack",
+					"animationSpeed":  1,
+					"sound":       "game:tool/sling1",
+					"soundStartMs": 600,
+					"soundRange":   24
+				}, {
+					"code": "fleeentity",
+					"whenInEmotionState": "retreat",
+					"priority": 4,
+					"entityCodes": ["*"],
+					"movespeed": 0.035,
+					"seekingRange": 6,
+					"cancelOnHurt": true,
+					"animation":     "BalancedRun",
+					"animationSpeed": 1.75
+				}, {
+					"code": "fleeentity",
+					"priority": 5,
+					"entityCodes": [
+						"game:wolf-male",  "game:wolf-female",
+						"game:hyena-male", "game:hyena-female",
+						"game:bear-*",
+						"game:drifter-tainted", "game:drifter-corrupt"
+					],
+					"movespeed": 0.035,
+					"seekingRange": 14,
+					"cancelOnHurt": true,
+					"animation":     "BalancedRun",
+					"animationSpeed": 1.75
+				}, {
+					"code": "fleeentity",
+					"priority": 4,
+					"entityCodes": ["game:drifter-nightmare", "game:drifter-double-headed", "game:bell-normal"],
+					"movespeed": 0.05,
+					"seekingRange": 32,
+					"animation":     "FormalRun",
+					"animationSpeed": 1.75
+				}, {
+					"code": "meleeattack",
+					"entityCodes": ["chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*"],
+					"priority": 1.5,
+					"mincooldown": 1500,
+					"maxcooldown": 3500,
+					"attackDurationMs": 900,
+					"damagePlayerAtMs": 300,
+					"animation":     "BalancedAttack",
+					"animationSpeed": 2,
+					"sound":       "game:player/stab",
+					"soundStartMs": 700,
+					"soundRange":   24
+				}, {
+					"code": "hireableseekentity",
+					"entityCodes": ["chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*"],
+					"priority": 2,
+					"mincooldown": 1000,
+					"maxcooldown": 1500,
+					"seekingRange": 8,
+					"movespeed": 0.01,
+					"animation": "SneakWalk"
+				}, {
+					"code": "hireableseekfoodandeat",
+					"priority": 1,
+					"eatTime": 2.3,
+					"movespeed": 0.01,
+					"eatLooseItems": true,
+					"eatItemCategories": ["Fruit", "Vegetable", "Protein", "Grain", "Dairy"],
+					"animation":     "BalancedWalk",
+					"animationSpeed": 0.8,
+					"eatAnimation":           "SwordHit",
+					"eatAnimationLooseItems": "Eat",
+					"mincooldownHours": 0.1,
+					"maxcooldownHours": 24
+				}, {
+					"code": "rest",
+					"whenNotInEmotionState": "aggressiveondamage",
+					"priority": 1,
+					"priorityForCancel": 1.35,
+					"mincooldown":   1000,
+					"maxcooldown":   4000,
+					"duringDayTimeFrames": [{ "fromHour": 22, "toHour": 24 }, { "fromHour": 0, "toHour": 5 }],
+					"restHours": 8,
+					"animation":     "BalancedWalk",
+					"restAnimation": "Lie"
+				}, {
+					"code": "hireableseekheavygunanduse",
+					"priority": 1,
+					"priorityForCancel": 1.35,
+					"mincooldown":   1000,
+					"maxcooldown":   4000,
+					"animation":     "BalancedWalk"
+				}, {
+					"code": "idle",
+					"whenNotInEmotionState": "aggressiveondamage",
+					"priority": 1.2,
+					"priorityForCancel": 1.35,
+					"minduration":  10000,
+					"maxduration": 100000,
+					"mincooldown":  50000,
+					"maxcooldown": 500000,
+					"animation": "SitFloorIdle",
+					"stopOnNearbyEntityCodes": ["*"],
+					"stopRange": 8,
+					"stopOnHurt": true
+				}, {
+					"code": "wander",
+					"priority": 0.5,
+					"movespeed": 0.02,
+					"animation": "BalancedWalk",
+					"wanderChance": 0.005,
+					"maxDistanceToSpawn": 4,
+					"wanderRangeMin": 1,
+					"wanderRangeMax": 3,
+					"preferredLightLevel": 20,
+					"teleportWhenOutOfRange": true,
+					"teleportInGameHours": 1
+				}, {
+					"code": "getoutofwater",
+					"priority": 1.4,
+					"movespeed": 0.015,
+					"animation": "Swim"
+				}, {
+					"code": "lookaround",
+					"priority": 0.5
+				}]
+			}
+		],
+		"spawnconditions": {
+			"runtime": {
+				"group": "neutral",
+				"tryOnlySurface": true,
+				"chance": 0.008,
+				"maxQuantity":6,
+				"minLightLevel": 10,
+				"groupSize": { "dist": "verynarrowgaussian", "avg": 4, "var": 2 },
+				"insideBlockCodes": ["game:air", "game:tallgrass-*", "game:snowlayer-1"],
+				"minTemp": -10,
+				"maxTemp": 40,
+				"minRain": 0.1,
+				"companions": ["sabreauclair:mercenary"]
+			}
+		}
+	},
+	"sounds": {
+	}
+}

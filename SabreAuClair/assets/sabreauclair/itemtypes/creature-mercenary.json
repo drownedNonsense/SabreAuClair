@@ -1,0 +1,27 @@
+{
+	"code":  "creature-mercenary",
+	"class": "ItemCreature",
+	"maxstacksize": 64,
+	"creativeinventory": { "general": ["*"], "items": ["*"], "creatures": ["*"], "sabreauclair": ["*"] },
+	"materialDensity": 600,
+    "shape":   { "base": "game:entity/humanoid/trader" },
+    "texture": { "base": "game:entity/humanoid/trader", "alternates": [
+        { "base": "game:entity/humanoid/traderclothes/set1" }, { "base": "game:entity/humanoid/traderclothes/set2" },
+        { "base": "game:entity/humanoid/traderclothes/set3" }, { "base": "game:entity/humanoid/traderclothes/set4" },
+        { "base": "game:entity/humanoid/traderclothes/set5" }
+    ]},
+	"guiTransform": {
+		"rotation": { "x":  0, "y":    -90, "z": -178 },
+		"origin":  { "x": 0.6, "y": 0.7799, "z":  0.5 }
+	},
+    "fpHandTransform": {
+		"translation": { "x": 0.05, "y": -0.3, "z":    0 },
+		"rotation":    { "x":  165, "y":   76, "z": -180 }
+	},
+    "tpHandTransform": {
+		"translation": { "x": -0.6, "y": -1.1, "z": -0.4 },
+		"rotation":    { "x":  -85, "y":  -11, "z":   89 },
+		"origin":      { "x":  0.5, "y":    1, "z":  0.5 },
+		"scale": 0.7
+	}
+}

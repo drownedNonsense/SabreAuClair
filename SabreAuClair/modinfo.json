@@ -1,0 +1,11 @@
+{
+    "type": "code",
+    "modid": "sabreauclair",
+    "name":  "Sabre au Clair",
+    "authors": ["Lastelle"],
+    "description": "Lead your army from the remnants of mankind",
+    "version": "0.0.11",
+    "dependencies": {
+        "game": ""
+    }
+}

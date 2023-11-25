@@ -1,0 +1,19 @@
+{
+    "ingredient": {
+      "type": "item",
+      "code": "game:ingot-*",
+      "name": "metal",
+      "allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+    },
+    "pattern": [
+        [
+            "##############",
+            "_#############"
+        ]
+    ],
+    "name": "SabreBlade",
+    "output": {
+        "type": "item",
+        "code": "sabreauclair:sabreblade-{metal}"
+    }
+}

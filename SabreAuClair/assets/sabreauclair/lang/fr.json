@@ -1,0 +1,52 @@
+{
+    "game:tabname-sabreauclair": "Sabre au Clair",
+
+    "game:blockhelp-company-lead":   "Mener tes troupes",
+    "game:blockhelp-company-attack": "Mener tes troupes à l'attaque",
+
+
+    "game:blockhelp-hireable-pay":            "Payer",
+    "game:blockhelp-hireable-joinformation":  "Rejoins la formation",
+    "game:blockhelp-hireable-leaveformation": "Quitte la formation",
+    "game:blockhelp-hireable-aggressive":     "Attaque à vue",
+    "game:blockhelp-hireable-defensive":      "Rengaine ton arme",
+
+    "game:ingameerror-companylimitreached": "Je ne peux mener plus de troupes",
+
+    "item-creature-mercenary":      "Mercenaire",
+    "item-dead-creature-mercenary": "Cadavre",
+
+    "item-officersabre-copper":        "Sabre d'officier en cuivre",
+    "item-officersabre-tinbronze":     "Sabre d'officier en bronze-étain",
+    "item-officersabre-bismuthbronze": "Sabre d'officier en bronze-bismuth",
+    "item-officersabre-blackbronze":   "Sabre d'officier en bronze noir",
+    "item-officersabre-gold":          "Sabre d'officier en or",
+    "item-officersabre-silver":        "Sabre d'officier en argent",
+    "item-officersabre-iron":          "Sabre d'officier en fer",
+    "item-officersabre-meteoriciron":  "Sabre d'officier en fer météorique",
+    "item-officersabre-steel":         "Sabre d'officier en acier",
+    "item-officersabre-ruined":        "Sabre d'officier en ruine",
+
+    "item-sabreblade-copper":        "Lame de sabre en cuivre",
+    "item-sabreblade-tinbronze":     "Lame de sabre en bronze-étain",
+    "item-sabreblade-bismuthbronze": "Lame de sabre en bronze-bismuth",
+    "item-sabreblade-blackbronze":   "Lame de sabre en bronze noir",
+    "item-sabreblade-gold":          "Lame de sabre en or",
+    "item-sabreblade-silver":        "Lame de sabre en argent",
+    "item-sabreblade-iron":          "Lame de sabre en fer",
+    "item-sabreblade-meteoriciron":  "Lame de sabre en fer météorique",
+    "item-sabreblade-steel":         "Lame de sabre en acier",
+
+    "item-sabreguard-copper":        "Garde de sabre en cuivre",
+    "item-sabreguard-tinbronze":     "Garde de sabre en bronze-étain",
+    "item-sabreguard-bismuthbronze": "Garde de sabre en bronze-bismuth",
+    "item-sabreguard-blackbronze":   "Garde de sabre en bronze noir",
+    "item-sabreguard-gold":          "Garde de sabre en or",
+    "item-sabreguard-silver":        "Garde de sabre en argent",
+    "item-sabreguard-iron":          "Garde de sabre en fer",
+    "item-sabreguard-meteoriciron":  "Garde de sabre en fer météorique",
+    "item-sabreguard-steel":         "Garde de sabre en acier",
+
+    "Fighting in {0}'s company for {1:0.#} days": "Combattant dans la compagnie de {0} pour {1:0.#} jours",
+    "Knight-errant": "Chevalier errant"
+}

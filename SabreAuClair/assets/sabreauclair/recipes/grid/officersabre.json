@@ -1,0 +1,13 @@
+[
+	{
+		"ingredientPattern": "_A,BC",
+		"ingredients": {
+			"A": { "type": "item", "code": "sabreauclair:sabreblade-*", "name": "metal", "allowedVariants": ["copper", "tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel"]},
+			"B": { "type": "item", "code": "sabreauclair:sabreguard-*",  "name": "metal", "allowedVariants": ["copper", "tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel"]},
+			"C": { "type": "item", "code": "game:stick" }
+		},
+		"width":  2,
+		"height": 2,
+		"output": { "type": "item", "code": "sabreauclair:officersabre-{metal}", "quantity": 1  }
+	}
+]

@@ -1,0 +1,103 @@
+{
+	"code": "officersabre",
+	"tool": "sword",
+	"class": "ItemSword",
+	"variantgroups": [{ "code": "metal", "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel", "ruined" ]}],
+	"creativeinventory": { "general": ["*"], "items": ["*"], "tools": ["*"], "sabreauclair": ["*"] },
+	"attributes": {
+		"handbook": {
+			"groupBy": ["officersabre-*"]
+		},
+		"toolrackTransform": {
+			"translation": { "x": -0.3, "y": 0.45, "z":   0 },
+			"rotation":    { "x":  -37, "y":  180, "z":   1 },
+			"origin":      { "x":  0.5, "y":    0, "z": 0.5 }
+		},
+		"groundStorageTransform": {
+			"translation": { "x": 0.24, "y": 1.2, "z": 0.04 },
+			"rotation":    { "x":   20, "y":  64, "z":  -87 },
+			"scale": 0.72
+		}
+	},
+	"behaviors": [{ 
+		"name": "GroundStorable",
+		"properties": {
+			"layout": "WallHalves",
+			"wallOffY": 2,
+			"sprintKey": true,
+			"selectionBox": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.1, "z2": 1 },
+			"collisionBox": { "x1": 0, "y1": 0, "z1": 0, "x2": 0, "y2":   0, "z2": 0 }
+		}
+	}],
+	"damagedby": ["blockbreaking", "attacking"],
+	"heldTpHitAnimation": "spearhit",
+	"shape": { "base": "sabre" },
+	"texturesByType": {
+		"*-ruined": {
+			"metal":  { "base": "game:block/metal/tarnished/steel" },
+			"handle": { "base": "game:block/wood/planks/rottenebony1" }
+		},
+		"*": {
+			"metal":  { "base": "game:block/metal/sheet/{metal}1" },
+			"handle": { "base": "game:block/wood/planks/ebony1" }
+		}
+	},
+	"attackRange": 3,
+	"tooltierbytype": {
+		"*-copper": 2,
+		"*-ruined": 2,
+		"*-gold": 5,
+		"*-silver": 5,
+		"*-bismuthbronze": 3,
+		"*-tinbronze": 3,
+		"*-blackbronze": 3,
+		"*-iron": 4,
+		"*-meteoriciron": 4,
+		"*-steel": 5
+	},
+	"attackpowerbytype": {
+		"*-copper": 3.75,
+		"*-bismuthbronze": 4.25,
+		"*-tinbronze": 4.25,
+		"*-blackbronze": 4.75,
+		"*-iron": 5,
+		"*-meteoriciron": 5.25,
+		"*-steel": 5.25,
+		"*-gold": 5.25,
+		"*-silver": 5.25
+	},
+	"durabilitybytype": {
+		"*-copper": 250,
+		"*-tinbronze": 450,
+		"*-bismuthbronze": 530,
+		"*-blackbronze": 600,
+		"*-iron": 850,
+		"*-meteoriciron": 1100,
+		"*-steel": 2125,
+		"*-gold": 2125,
+		"*-silver": 2125
+	},
+	"guiTransform": {
+        "translation": { "x":    0, "y":    0, "z":    0 },
+        "rotation":    { "x":  -37, "y":  124, "z":   -7 },
+        "origin":      { "x": 0.85, "y": -0.1, "z": 0.57 },
+        "scale": 2.06
+    },
+	"fpHandTransform": {
+		"translation": { "x": -0.2, "y": -0.2, "z":  0 },
+		"rotation":    { "x":  -14, "y":   -4, "z": 83 },
+		"scale": 1.93
+	},
+	"groundTransform": {
+        "translation": { "x":   0, "y": 0.04, "z":   0 },
+        "rotation":    { "x":   0, "y":    0, "z":   0 },
+        "origin":      { "x": 0.5, "y":    0, "z": 0.5 },
+        "scale": 3.4
+    },
+	"tpHandTransform": {
+        "translation": { "x": -0.98, "y": 0.055, "z": -0.78 },
+        "rotation":    { "x":    85, "y":     0, "z":    2 },
+        "origin":      { "x":   0.5, "y":     0, "z":  0.5 },
+        "scale": 0.63
+    }
+}

@@ -1,0 +1,10 @@
+[
+	{ "file": "game:blocktypes/wood/firepit", "op": "add", "path": "/entityBehaviors/-", "value": {
+        "name": "RestingPoint",
+        "properties": { "healEffectivenessBonus": "0.1", "validBlockCode": "firepit-lit", "restAreaRadius": 5, "capacity": 3 }
+    }},
+    { "file": "game:blocktypes/wood/bed", "op": "add", "path": "/entityBehaviors", "value": [{
+        "name": "RestingPoint",
+        "properties": { "healEffectivenessBonus": "0.2" }
+    }]}
+]
