@@ -29,16 +29,14 @@ namespace SabreAuClair {
             AiTaskRegistry.Register("hireablestayinformation", typeof(AiTaskHierableStayInFormation));
             AiTaskRegistry.Register("rest",                    typeof(AiTaskRest));
 
-            JsonObject modConfig  = api.LoadModConfig("SabreAuClairModConfig.json");
-            SabreAuClairModSystem.GlobalConstants = new SabreAuClairModSystem.ModConstants(
-                GameMath.Max(modConfig?["MercenaryDailyWage"].AsInt(1)            ??    1, 1),
-                GameMath.Max(modConfig?["CompanyCapacity"].AsInt(16)              ??   16, 1),
-                GameMath.Clamp(modConfig?["LineFormationRowRatio"].AsFloat(0.25f) ?? 0.25f, 0, 1),
-                modConfig?["CommanderToolCodes"].AsArray<string>(),
-                modConfig?["UseAnyBladeAsCommanderTool"].AsBool(false) ?? false,
-                modConfig?["IgnoreRuinedCommanderTools"].AsBool(true)  ?? true,
-                modConfig?["IgnoreAdminCommanderTools"].AsBool(true)   ?? true
-            ); // ..
+
+            SabreAuClairModSystem.GlobalConstants = api.LoadModConfig<SabreAuClairModConfig>("SabreAuClairModConfig.json");
+            if (SabreAuClairModSystem.GlobalConstants == null) {
+
+                SabreAuClairModSystem.GlobalConstants = new ();
+                api.StoreModConfig(SabreAuClairModSystem.GlobalConstants, "SabreAuClairModConfig.json");
+                
+            } // if ..
         } // void ..
 
 
@@ -57,35 +55,7 @@ namespace SabreAuClair {
 
 
         public override bool ShouldLoad(EnumAppSide forSide) => true;
+        public static SabreAuClairModConfig GlobalConstants;
 
-        public static ModConstants GlobalConstants;
-        public readonly struct ModConstants {
-
-            public readonly int      MercenaryDailyWage;
-            public readonly int      CompanyCapacity;
-            public readonly float    LineFormationRowRatio;
-            public readonly string[] CommanderToolCodes;
-            public readonly bool     UseAnyBladeAsCommanderTool;
-            public readonly bool     IgnoreRuinedCommanderTools;
-            public readonly bool     IgnoreAdminCommanderTools;
-
-            public ModConstants(
-                int      mercenaryDailyWage,
-                int      companyCapacity,
-                float    lineFormationRowRatio,
-                string[] commanderToolCodes,
-                bool     useAnyBladeAsCommanderTool,
-                bool     ignoreRuinedCommanderTools,
-                bool     ignoreAdminCommanderTools
-            ) {
-                this.MercenaryDailyWage         = mercenaryDailyWage;
-                this.CompanyCapacity            = companyCapacity;
-                this.LineFormationRowRatio      = lineFormationRowRatio;
-                this.CommanderToolCodes         = commanderToolCodes;
-                this.UseAnyBladeAsCommanderTool = useAnyBladeAsCommanderTool;
-                this.IgnoreRuinedCommanderTools = ignoreRuinedCommanderTools;
-                this.IgnoreAdminCommanderTools  = ignoreAdminCommanderTools;
-            } // ModConstants ..
-        } // struct ..
     } // class ..
 } // namespace ..
