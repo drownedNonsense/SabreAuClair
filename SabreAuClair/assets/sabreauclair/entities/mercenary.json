@@ -305,13 +305,6 @@
 					"animation":     "BalancedWalk",
 					"restAnimation": "Lie"
 				}, {
-					"code": "hireableseekheavygunanduse",
-					"priority": 1,
-					"priorityForCancel": 1.35,
-					"mincooldown":   1000,
-					"maxcooldown":   4000,
-					"animation":     "BalancedWalk"
-				}, {
 					"code": "idle",
 					"whenNotInEmotionState": "aggressiveondamage",
 					"priority": 1.2,

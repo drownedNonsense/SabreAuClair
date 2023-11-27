@@ -310,10 +310,10 @@ namespace SabreAuClair {
                 /// </summary>
                 public void UpdateHarvestableInv() {
                     InventoryGeneric harvestableInv = new (4, "harvestableContents-" + this.EntityId, this.Api);
-                    harvestableInv[0].Itemstack = this.ActiveHandItemSlot.Itemstack.Clone();
-                    harvestableInv[1].Itemstack = this.ArmorHeadSlot.Itemstack.Clone();
-                    harvestableInv[2].Itemstack = this.ArmorBodySlot.Itemstack.Clone();
-                    harvestableInv[3].Itemstack = this.ArmorLegsSlot.Itemstack.Clone();
+                    harvestableInv[0].Itemstack = this.ActiveHandItemSlot.Itemstack?.Clone();
+                    harvestableInv[1].Itemstack = this.ArmorHeadSlot.Itemstack?.Clone();
+                    harvestableInv[2].Itemstack = this.ArmorBodySlot.Itemstack?.Clone();
+                    harvestableInv[3].Itemstack = this.ArmorLegsSlot.Itemstack?.Clone();
 
                     foreach (ItemSlot slot in harvestableInv)
                          slot.Itemstack?.Collectible.DamageItem(
