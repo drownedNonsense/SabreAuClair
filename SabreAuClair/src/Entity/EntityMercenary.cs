@@ -309,22 +309,25 @@ namespace SabreAuClair {
                 /// Sends mercenary gears to the harvestable inventory while highly damaging them
                 /// </summary>
                 public void UpdateHarvestableInv() {
-                    InventoryGeneric harvestableInv = new (4, "harvestableContents-" + this.EntityId, this.Api);
-                    harvestableInv[0].Itemstack = this.ActiveHandItemSlot.Itemstack?.Clone();
-                    harvestableInv[1].Itemstack = this.ArmorHeadSlot.Itemstack?.Clone();
-                    harvestableInv[2].Itemstack = this.ArmorBodySlot.Itemstack?.Clone();
-                    harvestableInv[3].Itemstack = this.ArmorLegsSlot.Itemstack?.Clone();
+                    if (this.WatchedAttributes.GetBool("harvested")) {
 
-                    foreach (ItemSlot slot in harvestableInv)
-                         slot.Itemstack?.Collectible.DamageItem(
-                            this.World,
-                            this,
-                            slot,
-                            (int)(slot.Itemstack.Collectible.GetMaxDurability(slot.Itemstack) * (0.4f + this.World.Rand.NextSingle()))
-                        ); // ..
+                        InventoryGeneric harvestableInv = new (4, "harvestableContents-" + this.EntityId, this.Api);
+                        harvestableInv[0] = this.ActiveHandItemSlot;
+                        harvestableInv[1] = this.ArmorHeadSlot;
+                        harvestableInv[2] = this.ArmorBodySlot;
+                        harvestableInv[3] = this.ArmorLegsSlot;
 
-                    harvestableInv.ToTreeAttributes(this.WatchedAttributes.GetOrAddTreeAttribute("harvestableInv"));
-                    
+                        foreach (ItemSlot slot in harvestableInv)
+                            slot.Itemstack?.Collectible.DamageItem(
+                                this.World,
+                                this,
+                                slot,
+                                (int)(slot.Itemstack.Collectible.GetMaxDurability(slot.Itemstack) * (0.4f + this.World.Rand.NextSingle()))
+                            ); // ..
+
+                        harvestableInv.ToTreeAttributes(this.WatchedAttributes.GetOrAddTreeAttribute("harvestableInv"));
+                        
+                    } // if ..
                 } // void ..
 
 

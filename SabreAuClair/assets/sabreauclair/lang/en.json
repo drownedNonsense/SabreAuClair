@@ -48,5 +48,10 @@
     "item-sabreguard-steel":         "Steel sabre guard",
 
     "Fighting in {0}'s company for {1:0.#} days": "Fighting in {0}'s company for {1:0.#} days",
-    "Knight-errant": "Knight-errant"
+    "Knight-errant": "Knight-errant",
+
+    "game:deadcreature-human":   "Killed by human hands",
+    "game:deathmsg-mercenary-1": "Player {0} met their end at a mercenary's hands.",
+    "game:deathmsg-mercenary-2": "Player {0} couldn't outsmart a mercenary.",
+    "game:deathmsg-mercenary-3": "Player {0} was bested in a duel with a mercenary."
 }
