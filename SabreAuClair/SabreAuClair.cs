@@ -45,7 +45,8 @@ namespace SabreAuClair {
             foreach (Item item in api.World.Items)
                 if (item != null && item.Code != null) {
                     if (item is ItemSpear || item is ItemCleaver)
-                        item.CollectibleBehaviors = item.CollectibleBehaviors.Append(new BehaviorMercenaryInteraction(item)).ToArray();
+                        if (!item.CollectibleBehaviors.Any(x => x is BehaviorMercenaryInteraction))
+                            item.CollectibleBehaviors = item.CollectibleBehaviors.Append(new BehaviorMercenaryInteraction(item)).ToArray();
 
                     else if (item?.IsCommanderTool() ?? false)
                         if (!item.CollectibleBehaviors.Any(x => x is BehaviorCommanderTool))
@@ -55,7 +56,7 @@ namespace SabreAuClair {
 
 
         public override bool ShouldLoad(EnumAppSide forSide) => true;
-        public static SabreAuClairModConfig GlobalConstants;
+        public static SabreAuClairModConfig GlobalConstants { get; private set; }
 
     } // class ..
 } // namespace ..

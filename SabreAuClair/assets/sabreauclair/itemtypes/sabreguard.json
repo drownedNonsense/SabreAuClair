@@ -2,7 +2,7 @@
     "code": "sabreguard",
 	"class": "Item",
 	"variantgroups": [{ "code": "metal", "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]}],
-	"creativeinventory": { "general": ["*"], "items": ["*"], "tools": ["*"], "sabreauclair": ["*"] },
+	"creativeinventory": { "general": ["*"], "items": ["*"], "sabreauclair": ["*"] },
     "attributes": {
 		"handbook": {
 			"groupBy": ["sabreguard-*"]

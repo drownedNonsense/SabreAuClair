@@ -177,8 +177,8 @@ namespace SabreAuClair {
                         JsonObject attr = shieldSlot.Itemstack?.ItemAttributes?["shield"];
                         if (attr == null || !attr.Exists) continue;
 
-                        float damageAbsorb = attr["damageAbsorption"]["active"].AsFloat(0);
-                        float chance       = attr["protectionChance"]["active"].AsFloat(0);
+                        float damageAbsorb = attr["damageAbsorption"]["passive"].AsFloat(0);
+                        float chance       = attr["protectionChance"]["passive"].AsFloat(0);
 
                         float dx;
                         float dy;
@@ -277,11 +277,11 @@ namespace SabreAuClair {
                         if (slot.Empty && this.Alive && player.PlayerUID == this.Commander?.PlayerUID) this.inventory.DropAll(this.SidedPos.XYZ);
                         else if (this.Alive && player.PlayerUID == this.Commander?.PlayerUID) {
 
-                            ItemSlot targetSlot = slot.Itemstack?.ItemAttributes["clothescategory"].AsString() switch {
+                            ItemSlot targetSlot = slot.Itemstack?.ItemAttributes?["clothescategory"].AsString() switch {
                                 "armorhead" => this.ArmorHeadSlot,
                                 "armorbody" => this.ArmorBodySlot,
                                 "armorlegs" => this.ArmorLegsSlot,
-                                _           => byEntity.Controls.CtrlKey ? this.LeftHandItemSlot : this.RightHandItemSlot
+                                _           => byEntity.Controls.CtrlKey ? this.LeftHandItemSlot : this.RightHandItemSlot,
                             }; // ..
 
 

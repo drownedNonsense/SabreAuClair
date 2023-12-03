@@ -14,6 +14,9 @@
 			}, {
 				"armorBody": "game:armor-body-chain-blackbronze"
 			}, {
+				"armorBody": "game:armor-body-lamellar-blackbronze",
+				"armorLegs": "game:armor-legs-sewn-leather"
+			}, {
 				"armorHead": "game:armor-head-antique-blackguard-pristine",
 				"armorBody": "game:armor-body-sewn-linen",
 				"armorLegs": "game:armor-legs-sewn-leather"
@@ -27,17 +30,34 @@
 			}
 		],
 		"selectFromRandomWeapons": [
-			"game:blade-blackguard-iron",
-			"game:blade-claymore-ruined",
-			"game:blade-gladius-ruined",
-			"game:club-flanged-ruined",
-			"game:club-warhammer-ruined",
-			"game:spear-boar-ruined",
-			"game:spear-voulge-ruined",
-			"game:axe-bardiche-ruined",
-			"game:sling",
-			"game:bow-simple",
-			"game:bow-long"
+			{ "weapon": "sabreauclair:officersabre-ruined" },
+			{ "weapon": "game:knife-baselard-ruined" },
+			{ "weapon": "game:blade-claymore-ruined" },
+			{ "weapon": "game:blade-claymore-ruined",   "shield": { "code": "game:shield-woodmetal", "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:blade-claymore-ruined",   "shield": { "code": "game:shield-metal",     "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:spear-boar-ruined" },
+			{ "weapon": "game:spear-voulge-ruined" },
+			{ "weapon": "game:bow-long" },
+			{ "weapon": "game:bow-simple" },
+			{ "weapon": "game:bow-simple",              "shield": { "code": "game:shield-woodmetalleather", "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none", "color": "redblack" }}},
+			{ "weapon": "game:sling",                   "shield": { "code": "game:shield-woodmetalleather", "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none", "color": "redblack" }}},
+			{ "weapon": "game:blade-gladius-ruined",    "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:blade-arming-ruined",     "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-morningstar-ruined", "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-morningstar-ruined", "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-flanged-ruined",     "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-flanged-ruined",     "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-spiked-ruined",      "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-spiked-ruined",      "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-warhammer-ruined",   "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:club-warhammer-ruined",   "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:axe-bearded-ruined",      "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:axe-bearded-ruined",      "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:axe-battle-ruined",       "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:axe-battle-ruined",       "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:axe-bardiche-ruined" },
+			{ "weapon": "game:axe-bardiche-ruined",     "shield": { "code": "game:shield-woodmetal",        "attributes": { "wood": "aged",    "metal": "blackbronze", "deco": "none" }}},
+			{ "weapon": "game:axe-bardiche-ruined",     "shield": { "code": "game:shield-metal",            "attributes": { "wood": "generic", "metal": "blackbronze", "deco": "none" }}}
 		],
 		"blockDiet": [
 			"crop-cabbage*",
@@ -140,7 +160,7 @@
 				"code": "emotionstates",
 				"states": [
 					{ "code": "fleeondamage",       "duration": 100, "chance": 0.5, "slot": 0, "priority": 5, "accumType": "max", "whenHealthRelBelow": 0.4 },
-					{ "code": "retreat",            "duration":  10, "chance": 0.5, "slot": 0, "priority": 5, "accumType": "max" },
+					{ "code": "retreat",            "duration":  10, "chance": 0.5, "slot": 0, "priority": 2, "accumType": "max" },
 					{ "code": "alarmherdondamage",                   "chance": 1.0, "slot": 1, "priority": 1, "accumType": "max" }
 				]
 			}, {
@@ -179,9 +199,9 @@
 					"maxcooldown": 2000,
 					"attackDurationMs": 900,
 					"damagePlayerAtMs": 300,
-					"animation":     "BalancedAttack",
+					"animation":     "RowdyAttack",
 					"animationSpeed": 2,
-					"sound":       "game:player/stab",
+					"sound":       "game:player/strike1",
 					"soundStartMs": 700,
 					"soundRange":   24
 				}, {
@@ -269,7 +289,7 @@
 					"damagePlayerAtMs": 300,
 					"animation":     "BalancedAttack",
 					"animationSpeed": 2,
-					"sound":       "game:player/stab",
+					"sound":       "game:player/strike2",
 					"soundStartMs": 700,
 					"soundRange":   24
 				}, {

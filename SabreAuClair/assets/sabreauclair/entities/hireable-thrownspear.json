@@ -1,0 +1,69 @@
+{
+	"code": "hireable-thrownspear",
+	"class": "EntityHireableProjectile",
+	"hitboxSize": { "x": 0.125, "y": 0.125 },
+	"variantgroups": [
+		{ "code": "type",     "states": ["generic", "scrap", "boar", "voulge", "fork", "ranseur"] },
+		{ "code": "material", "states": ["granite", "andesite", "basalt", "obsidian", "peridotite", "chert", "flint", "scrap", "copper", "tinbronze", 
+																 "bismuthbronze", "blackbronze", "ornategold", "ornatesilver", "hacking", "ruined"] }
+	],
+	"skipVariants": [
+		"hireable-thrownspear-generic-ruined",
+		"hireable-thrownspear-generic-scrap"
+	],
+	"allowedVariants": [
+		"hireable-thrownspear-generic-*",
+		"hireable-thrownspear-scrap-scrap",
+		"hireable-thrownspear-boar-ruined",
+		"hireable-thrownspear-voulge-ruined",
+		"hireable-thrownspear-fork-ruined",
+		"hireable-thrownspear-ranseur-ruined"
+	],
+	"client": {
+		"renderer": "Shape",
+		"shapeByType": {
+			"hireable-thrownspear-scrap-scrap":    { "base": "game:item/tool/spear/scrap",  "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-copper": { "base": "game:item/tool/spear/copper", "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-tinbronze":     { "base": "game:item/tool/spear/copper", "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-bismuthbronze": { "base": "game:item/tool/spear/copper", "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-blackbronze":   { "base": "game:item/tool/spear/copper", "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-ornategold":    { "base": "game:item/tool/spear/ornategold",   "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-ornatesilver":  { "base": "game:item/tool/spear/ornatesilver", "offsetX": -0.8125 },
+			"hireable-thrownspear-generic-hacking":       { "base": "game:item/tool/spear/hacking", "offsetX": -0.8125 },
+			"*-ruined": { "base": "game:item/tool/spear/ruined/{type}" },
+			"*": { "base": "game:item/tool/spear/stone", "offsetX": -0.8125 }
+		},
+		"texturesByType": {
+			"hireable-thrownspear-generic-granite":    { "material": { "base": "game:block/stone/rock/{material}1" }},
+			"hireable-thrownspear-generic-chert":      { "material": { "base": "game:block/stone/rock/{material}1" }},
+			"hireable-thrownspear-generic-andesite":   { "material": { "base": "game:block/stone/rock/{material}1" }},
+			"hireable-thrownspear-generic-basalt":     { "material": { "base": "game:block/stone/rock/{material}1" }},
+			"hireable-thrownspear-generic-obsidian":   { "material": { "base": "game:block/stone/rock/{material}1" }},
+			"hireable-thrownspear-generic-peridotite": { "material": { "base": "game:block/stone/rock/{material}1" }},
+			"hireable-thrownspear-generic-flint":      { "material": { "base": "game:block/stone/{material}" }},
+			"hireable-thrownspear-generic-ornate*": { },
+			"hireable-thrownspear-scrap-scrap": { "rusty-iron": { "base": "game:block/metal/tarnished/rusty-iron" }},
+			"hireable-thrownspear-generic-hacking": { },
+			"*-ruined": { },
+			"*": { "material": { "base": "game:item/tool/material/{material}" }}
+		},
+		"behaviors": [{ 
+				"code": "passivephysics", 
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			}, { "code": "interpolateposition" }
+		]
+	},
+	"server": {
+		"behaviors": [{ 
+				"code": "passivephysics", 
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			}, { "code": "despawn", "minSeconds": 600 }
+		]
+	},
+	"sounds": {
+	}
+}

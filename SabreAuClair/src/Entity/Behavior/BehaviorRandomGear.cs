@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
@@ -68,14 +69,35 @@ namespace SabreAuClair {
 
                 } // if ..
 
-
                 JsonObject randWeapons = attributes["selectFromRandomWeapons"];
                 if (randWeapons.Exists) {
 
-                    string[] randWeaponsArray = randWeapons.AsArray<string>();
-                    if (this.entity.World.GetItem(new AssetLocation(randWeaponsArray[this.entity.World.Rand.Next(randWeaponsArray.Length)])) is Item item)
-                        this.entityAgent.ActiveHandItemSlot.Itemstack = new ItemStack(item);
+                    JsonObject[] randWeaponsArray   = randWeapons.AsArray();
+                    JsonObject   randweapon         = randWeaponsArray[this.entity.World.Rand.Next(randWeaponsArray.Length)];
 
+                    if (this.entity.World.GetItem(new AssetLocation(randweapon["weapon"].AsString())) is Item weaponItem)
+                        this.entityAgent.RightHandItemSlot.Itemstack = new ItemStack(weaponItem);
+
+                    JsonObject shield = randweapon["shield"];
+
+                    if (shield.Exists && this.entity.World.GetItem(new AssetLocation(shield["code"].AsString())) is Item shieldItem) {
+
+                        ItemStack itemStack         = new (shieldItem);
+                        JsonObject shieldAttributes = shield["attributes"];
+
+                        if (shieldAttributes.Exists) {
+                            itemStack.Attributes.SetString("wood",  shieldAttributes["wood"].AsString("generic"));
+                            itemStack.Attributes.SetString("metal", shieldAttributes["metal"].AsString("iron"));
+                            itemStack.Attributes.SetString("deco",  shieldAttributes["deco"].AsString("none"));
+
+                            if (shieldAttributes["color"].Exists)
+                                itemStack.Attributes.SetString("color", shieldAttributes["color"].AsString());
+
+                        } // if ..
+
+                        this.entityAgent.LeftHandItemSlot.Itemstack = itemStack;
+                        
+                    } // if ..
                 } // if ..
             } // void ..
     } // class ..
